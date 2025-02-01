@@ -12,7 +12,6 @@ public class PlayerMove : MonoBehaviour
 
     public bool IsMoving => _isMoving;
     private bool _isMoving;
-    private bool _isSneaking;
 
     Rigidbody2D _rigidbody;
     Transform _transform;
@@ -33,7 +32,7 @@ public class PlayerMove : MonoBehaviour
     void FixedUpdate()
     {
         Vector2 velocity = _rigidbody.linearVelocity;
-        _rigidbody.linearVelocity = Direction * (_isSneaking ? MoveSpeed / 2 : MoveSpeed);
+        _rigidbody.linearVelocity = Direction * MoveSpeed;
         _isMoving = Direction.magnitude > 0.01f;
 
         actualPos = _transform.position;
