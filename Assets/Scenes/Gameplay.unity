@@ -155,7 +155,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -217, y: 205}
+  m_AnchoredPosition: {x: -217, y: 187}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8979769
@@ -492,6 +492,7 @@ GameObject:
   - component: {fileID: 422777109}
   - component: {fileID: 422777108}
   - component: {fileID: 422777110}
+  - component: {fileID: 422777111}
   m_Layer: 0
   m_Name: Robot
   m_TagString: Untagged
@@ -585,7 +586,7 @@ Transform:
   m_GameObject: {fileID: 422777104}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.18, y: 0.07, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -671,6 +672,18 @@ MonoBehaviour:
     m_Bits: 512
   DetectionRange: 2
   VisionAngle: 40
+--- !u!114 &422777111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422777104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78e5e734e546a28448494cca56d00deb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &473472529
 GameObject:
   m_ObjectHideFlags: 0
@@ -939,7 +952,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 208, y: 203}
+  m_AnchoredPosition: {x: 208, y: 185.00002}
   m_SizeDelta: {x: 227.97, y: 33.32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &615651457
@@ -1122,7 +1135,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.2947027, g: 0.45745453, b: 0.7132075, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1174,6 +1187,8 @@ GameObject:
   - component: {fileID: 796000938}
   - component: {fileID: 796000937}
   - component: {fileID: 796000936}
+  - component: {fileID: 796000940}
+  - component: {fileID: 796000939}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -1231,6 +1246,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &796000939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796000935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16d56408ad79bbc4393d267d02604f23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &796000940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796000935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11a5205693a980f49970f746bd7ac0f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1790084978
 GameObject:
   m_ObjectHideFlags: 0
@@ -1241,7 +1280,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1790084979}
   m_Layer: 0
-  m_Name: ScoreManager
+  m_Name: TimeManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
