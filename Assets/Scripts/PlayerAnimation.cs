@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerAnimation : MonoBehaviour
 {
     private Animator _animator;
-    private PlayerInput _input;
     private PlayerMove _movement;
 
     void Start()
@@ -17,6 +16,5 @@ public class PlayerAnimation : MonoBehaviour
     void Update()
     {
         //_animator.SetBool("Walk", _movement.IsMoving);
-        //_animator.SetBool("Sneak", _input.Sneak);
     }
 }
