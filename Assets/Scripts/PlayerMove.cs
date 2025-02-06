@@ -17,16 +17,21 @@ public class PlayerMove : MonoBehaviour
     Transform _transform;
     Vector2 Direction;
     Vector3 actualPos, lastPos;
+
     [SerializeField]
     private float Distance = 0;
 
     public static Action<int> OnDistanceUpdated;
+
+    SpriteRenderer _spriteRenderer;
+    public Sprite up, down, side;
 
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _transform = _rigidbody.transform;
         lastPos = _transform.position;
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void FixedUpdate()
@@ -47,9 +52,26 @@ public class PlayerMove : MonoBehaviour
     void OnHorizontalMove(InputValue value)
     {
         Direction.x = value.Get<float>();
+        _spriteRenderer.sprite = side;
+
+        if (Direction.x == 1)
+        {
+            _spriteRenderer.flipX = false;
+        } else if (Direction.x == -1)
+        {
+            _spriteRenderer.flipX = true;
+        }
     }
     void OnVerticalMove(InputValue value)
     {
         Direction.y = value.Get<float>();
+        if (Direction.y == 1)
+        {
+            _spriteRenderer.sprite = up;
+        }
+        else if (Direction.y == -1)
+        {
+            _spriteRenderer.sprite = down;
+        }
     }
 }
