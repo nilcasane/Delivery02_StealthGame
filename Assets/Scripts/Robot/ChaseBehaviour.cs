@@ -2,34 +2,25 @@ using UnityEngine;
 
 public class ChaseBehaviour : StateMachineBehaviour
 {
-    public float Speed = 2;
-    public float VisionRange;
-
+    public float Speed;
     private Transform _player;
+    private EnemyVision _enemyVision;
 
-    // OnStateEnter is called when a transition starts and
-    // the state machine starts to evaluate this state
-    override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         _player = GameObject.FindGameObjectWithTag("Player").transform;
+        _enemyVision = animator.GetComponent<EnemyVision>();
+
     }
-
-    // OnStateUpdate is called on each Update frame between
-    // OnStateEnter and OnStateExit callbacks
-    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        // Check triggers
-        var playerClose = IsPlayerClose(animator.transform);
-        animator.SetBool("IsChasing", playerClose);
-
         // Move to player
         Vector2 dir = _player.position - animator.transform.position;
         animator.transform.position += (Vector3)dir.normalized * Speed * Time.deltaTime;
-    }
+        //animator.transform.Rotate(0,0,);
 
-    private bool IsPlayerClose(Transform transform)
-    {
-        var dist = Vector3.Distance(transform.position, _player.position);
-        return dist < VisionRange;
+        // Check
+        var playerClose = _enemyVision.IsPlayerDetected;
+        animator.SetBool("IsChasing", playerClose);
     }
 }

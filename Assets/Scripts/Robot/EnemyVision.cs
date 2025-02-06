@@ -1,12 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VisionDetector : MonoBehaviour
+public class EnemyVision : MonoBehaviour
 {
     public LayerMask WhatIsPlayer;
     public LayerMask WhatIsVisible;
     public float DetectionRange;
     public float VisionAngle;
+
+    public bool IsPlayerDetected {  get; private set; }
 
     private void OnDrawGizmos()
     {
@@ -14,10 +16,10 @@ public class VisionDetector : MonoBehaviour
 
         Gizmos.color = Color.yellow;
         var direction = Quaternion.AngleAxis(VisionAngle / 2, transform.forward)
-            * transform.right;
+            * transform.up;
         Gizmos.DrawRay(transform.position, direction * DetectionRange);
         var direction2 = Quaternion.AngleAxis(-VisionAngle / 2, transform.forward)
-            * transform.right;
+            * transform.up;
         Gizmos.DrawRay(transform.position, direction2 * DetectionRange);
 
         Gizmos.color = Color.white;
@@ -25,7 +27,14 @@ public class VisionDetector : MonoBehaviour
 
     private void Update()
     {
-        if (DetectPlayers().Length > 0) Debug.Log("Player detected");
+        if (DetectPlayers().Length > 0)
+        {
+            IsPlayerDetected = true;
+        }
+        else
+        {
+            IsPlayerDetected = false;
+        }
     }
 
     private Transform[] DetectPlayers()
@@ -79,7 +88,7 @@ public class VisionDetector : MonoBehaviour
     private float GetAngle(Transform target)
     {
         Vector2 targetDir = target.position - transform.position;
-        float angle = Vector2.Angle(targetDir, transform.right);
+        float angle = Vector2.Angle(targetDir, transform.up);
 
         return angle;
     }
@@ -94,6 +103,7 @@ public class VisionDetector : MonoBehaviour
             {
                 players.Remove(players[i]);
             }
+
         }
 
         return (players.Count > 0);
