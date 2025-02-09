@@ -42,9 +42,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0
   m_TransitionOffset: 0
-  m_ExitTime: 0.75
+  m_ExitTime: 4.2096243e-10
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -244,9 +244,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac0cae526af7ab4186c19939876b680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 20
-  StayTime: 2
-  CurrentWaypointIndex: 0
 --- !u!1102 &4138855296831804614
 AnimatorState:
   serializedVersion: 6
@@ -313,4 +310,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc257c6d2c0fa2b47b01138a99a9d948, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StayTime: 2

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class EnemyVision : MonoBehaviour
 {
@@ -85,11 +86,11 @@ public class EnemyVision : MonoBehaviour
         return (players.Count > 0);
     }
 
-    private float GetAngle(Transform target)
+    public float GetAngle(Transform target)
     {
         Vector2 targetDir = target.position - transform.position;
         float angle = Vector2.Angle(targetDir, transform.up);
-
+        Debug.Log(angle);
         return angle;
     }
 

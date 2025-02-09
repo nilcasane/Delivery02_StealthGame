@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class IdleBehaviour : StateMachineBehaviour
 {
-    public float StayTime;
-
     private float _timer;
     private EnemyVision _enemyVision;
+    private EnemyController _enemyController;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        _timer = 0.0f;
+        _enemyController = animator.GetComponent<EnemyController>();
         _enemyVision = animator.GetComponent<EnemyVision>();
+        _timer = 0.0f;
     }
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -23,6 +23,6 @@ public class IdleBehaviour : StateMachineBehaviour
     private bool IsTimeUp()
     {
         _timer += Time.deltaTime;
-        return (_timer > StayTime);
+        return (_timer > _enemyController.idleDuration);
     }
 }

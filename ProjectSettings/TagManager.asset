@@ -44,6 +44,9 @@ TagManager:
   - name: Obstacles
     uniqueID: 2130369827
     locked: 0
+  - name: Enemies
+    uniqueID: 1139177119
+    locked: 0
   - name: Player
     uniqueID: 726612001
     locked: 0
