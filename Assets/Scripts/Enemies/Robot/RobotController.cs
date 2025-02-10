@@ -1,10 +1,10 @@
 using System;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class RobotController : MonoBehaviour
 {
     [Header("Waypoints")]
-    public Transform[] Waypoints;  // Asigna los waypoints desde el Inspector
+    public Transform[] Waypoints;
     [SerializeField]
     public int currentWaypoint = 0;
     [SerializeField]
@@ -18,7 +18,7 @@ public class EnemyController : MonoBehaviour
     public float detectionRadius = 5f;
     public float idleDuration = 1f;
 
-    public Transform player;  // Asigna al jugador desde el Inspector
+    public Transform player;
     public Rigidbody2D RigidBody;
 
     private void Start()

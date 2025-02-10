@@ -1,14 +1,14 @@
 using UnityEngine;
 
-public class IdleBehaviour : StateMachineBehaviour
+public class RobotIdle : StateMachineBehaviour
 {
     private float _timer;
     private EnemyVision _enemyVision;
-    private EnemyController _enemyController;
+    private RobotController _controller;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        _enemyController = animator.GetComponent<EnemyController>();
+        _controller = animator.GetComponent<RobotController>();
         _enemyVision = animator.GetComponent<EnemyVision>();
         _timer = 0.0f;
     }
@@ -23,6 +23,6 @@ public class IdleBehaviour : StateMachineBehaviour
     private bool IsTimeUp()
     {
         _timer += Time.deltaTime;
-        return (_timer > _enemyController.idleDuration);
+        return (_timer > _controller.idleDuration);
     }
 }

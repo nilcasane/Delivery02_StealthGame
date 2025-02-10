@@ -1,19 +1,18 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 
-public class ChaseBehaviour : StateMachineBehaviour
+public class RobotChase : StateMachineBehaviour
 {
     private Transform _player;
     private EnemyVision _enemyVision;
-    private EnemyController _enemyController;
+    private RobotController _controller;
     private Rigidbody2D _rb;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         _enemyVision = animator.GetComponent<EnemyVision>();
-        _enemyController = animator.GetComponent<EnemyController>();
-        _player = _enemyController.player;
-        _rb = _enemyController.RigidBody;
+        _controller = animator.GetComponent<RobotController>();
+        _player = _controller.player;
+        _rb = _controller.RigidBody;
     }
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -22,7 +21,7 @@ public class ChaseBehaviour : StateMachineBehaviour
             Vector2.MoveTowards(
                 animator.transform.position,
                 _player.position,
-                _enemyController.chaseSpeed * Time.deltaTime)
+                _controller.chaseSpeed * Time.deltaTime)
         );
         _rb.rotation = Mathf.Atan2(_player.position.y, _player.position.x) * Mathf.Rad2Deg;
 
