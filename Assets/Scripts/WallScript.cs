@@ -6,19 +6,19 @@ public class WallScript : MonoBehaviour
 
     private void OnEnable()
     {
-        ButtonScript.OnButtonPressed += OpenDoor;
+        ButtonScript.OnButtonPressed += Destroy;
     }
     private void OnDisable()
     {
-        ButtonScript.OnButtonPressed -= OpenDoor;
+        ButtonScript.OnButtonPressed -= Destroy;
 
     }
     private void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
-    private void OpenDoor()
+    private void Destroy()
     {
-        _spriteRenderer.enabled = false;
+        Destroy(gameObject);
     }
 }

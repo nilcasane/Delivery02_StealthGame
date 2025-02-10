@@ -90,7 +90,6 @@ public class EnemyVision : MonoBehaviour
     {
         Vector2 targetDir = target.position - transform.position;
         float angle = Vector2.Angle(targetDir, transform.up);
-        Debug.Log(angle);
         return angle;
     }
 
