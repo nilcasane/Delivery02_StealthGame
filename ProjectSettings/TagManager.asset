@@ -41,11 +41,17 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Enemies
+    uniqueID: 1139177119
+    locked: 0
   - name: Obstacles
     uniqueID: 2130369827
     locked: 0
   - name: Player
     uniqueID: 726612001
+    locked: 0
+  - name: UI
+    uniqueID: 1650447559
     locked: 0
   m_RenderingLayers:
   - Default
