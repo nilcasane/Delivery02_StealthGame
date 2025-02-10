@@ -24,7 +24,7 @@ public class PlayerMove : MonoBehaviour
     public static Action<int> OnDistanceUpdated;
 
     SpriteRenderer _spriteRenderer;
-    public Sprite up, down, side;
+    public Sprite Up, Down, Side, DiagonalUp;
 
     void Start()
     {
@@ -52,7 +52,7 @@ public class PlayerMove : MonoBehaviour
     void OnHorizontalMove(InputValue value)
     {
         Direction.x = value.Get<float>();
-        _spriteRenderer.sprite = side;
+        _spriteRenderer.sprite = Side;
 
         if (Direction.x == 1)
         {
@@ -67,11 +67,18 @@ public class PlayerMove : MonoBehaviour
         Direction.y = value.Get<float>();
         if (Direction.y == 1)
         {
-            _spriteRenderer.sprite = up;
+            if (Direction.x == 1)
+            {
+                _spriteRenderer.sprite = DiagonalUp;
+            }
+            else
+            {
+                _spriteRenderer.sprite = Up;
+            }
         }
         else if (Direction.y == -1)
         {
-            _spriteRenderer.sprite = down;
+            _spriteRenderer.sprite = Down;
         }
     }
 }
