@@ -9,6 +9,7 @@ public class RobotPatrol : StateMachineBehaviour
     private Transform _target;
     private Rigidbody2D _rb;
     private float _timer;
+    private float deviation;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -17,6 +18,7 @@ public class RobotPatrol : StateMachineBehaviour
         _controller = animator.GetComponent<RobotController>();
         _rb = _controller.RigidBody;
         _target = _controller.Waypoints[_controller.currentWaypoint];
+        deviation = _controller.Deviation;
     }   
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -29,13 +31,12 @@ public class RobotPatrol : StateMachineBehaviour
                 _controller.patrolSpeed * Time.deltaTime
             )
         );
-        /*Quaternion targetRotation = Quaternion.LookRotation(targetPos);
-        Quaternion rotation = Quaternion.RotateTowards(animator.transform.rotation, targetRotation, 5 * Time.deltaTime);
-        _rb.MoveRotation(rotation);*/
 
-        _rb.rotation = Mathf.Atan2(targetPos.y, targetPos.x) * Mathf.Rad2Deg;
-
-        //Mathf.Atan2(targetPos.y, targetPos.x) * Mathf.Rad2Deg
+        // Rotación con Quaternion
+        Vector2 direction = targetPos - (Vector2)animator.transform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+        Quaternion targetRotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        _rb.MoveRotation(Quaternion.RotateTowards(animator.transform.rotation, targetRotation, 5000 * Time.deltaTime));
 
         // Check
         if (Vector2.Distance(animator.transform.position, targetPos) < 0.1f)

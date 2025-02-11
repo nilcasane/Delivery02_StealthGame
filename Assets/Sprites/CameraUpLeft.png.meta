@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: cb4f3a3d61ae91d439b727b5e3c8eafb
+guid: 3723defbfb1aa1e4a87ebc4227ab9cad
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 9040879190431018056
-    second: Front_0
+      213: 8829706086681901599
+    second: Camara iquierda arriba_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Front_0
+      name: Camara iquierda arriba_0
       rect:
         serializedVersion: 2
-        x: 3
+        x: 0
         y: 0
-        width: 29
-        height: 34
+        width: 32
+        height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 84cacda19b7a77d70800000000000000
-      internalID: 9040879190431018056
+      spriteID: f1a77cf67ea698a70800000000000000
+      internalID: 8829706086681901599
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Front_0: 9040879190431018056
+      Camara iquierda arriba_0: 8829706086681901599
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

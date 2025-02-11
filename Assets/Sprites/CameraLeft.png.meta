@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5e4e289667276044b98a57210ed0c193
+guid: c1a383148a655d74f9dd6802e1f3757f
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -103,10 +103,10 @@ TextureImporter:
       name: Camara izquierda_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 2
-        width: 19
-        height: 45
+        x: 4
+        y: 0
+        width: 28
+        height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
