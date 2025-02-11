@@ -11,24 +11,25 @@ public class RobotChase : StateMachineBehaviour
     {
         _enemyVision = animator.GetComponent<EnemyVision>();
         _controller = animator.GetComponent<RobotController>();
-        _player = _controller.player;
+        _player = _controller.player.transform;
         _rb = _controller.RigidBody;
     }
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         // Move to player
+        Vector2 targetPosition = _player.position;
         _rb.MovePosition(
             Vector2.MoveTowards(
                 animator.transform.position,
-                _player.position,
+                targetPosition,
                 _controller.chaseSpeed * Time.deltaTime)
         );
-        _rb.rotation = Mathf.Atan2(_player.position.x, _player.position.y) * Mathf.Rad2Deg;
-        /* Quaternion targetRotation = Quaternion.LookRotation(_player.position);
-        Quaternion rotation = Quaternion.RotateTowards(animator.transform.rotation, targetRotation, 5 * Time.deltaTime);
-        */
-        //_rb.MoveRotation(rotation);
-        //animator.transform.rotation = rotation;
+
+        // Rotación con Quaternion
+        Vector2 direction = targetPosition - (Vector2)animator.transform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+        Quaternion targetRotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        _rb.MoveRotation(Quaternion.RotateTowards(animator.transform.rotation, targetRotation, 5000 * Time.deltaTime));
 
         // Check
         var playerClose = _enemyVision.IsPlayerDetected;
