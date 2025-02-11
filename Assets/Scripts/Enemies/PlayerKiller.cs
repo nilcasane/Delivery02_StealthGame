@@ -7,6 +7,7 @@ public class PlayerKiller : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            Debug.Log("Player Killed");
             GameplayManager.OnPlayerLose?.Invoke();
         }
     }

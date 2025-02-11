@@ -95,7 +95,6 @@ public class EnemyVision : MonoBehaviour
             {
                 players.Remove(players[i]);
             }
-
         }
 
         return (players.Count > 0);
