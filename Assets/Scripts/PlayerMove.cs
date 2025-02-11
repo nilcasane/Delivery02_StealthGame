@@ -19,7 +19,7 @@ public class PlayerMove : MonoBehaviour
     Vector3 actualPos, lastPos;
 
     [SerializeField]
-    private float Distance = 0;
+    public static float Distance { get; private set; }
 
     public static Action<int> OnDistanceUpdated;
 
@@ -28,6 +28,7 @@ public class PlayerMove : MonoBehaviour
 
     void Start()
     {
+        Distance = 0;
         _rigidbody = GetComponent<Rigidbody2D>();
         _transform = _rigidbody.transform;
         lastPos = _transform.position;
