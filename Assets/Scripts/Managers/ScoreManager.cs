@@ -10,21 +10,6 @@ public class ScoreManager : MonoBehaviour
 
     public static Action<float, float> OnScoreUpdated;
 
-    public static ScoreManager Instance { get; private set; }
-
-    private void Start()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-
     private void OnEnable()
     {
         OnScoreUpdated += UpdateScore;
@@ -45,7 +30,6 @@ public class ScoreManager : MonoBehaviour
     }
     private int CalculateScore(float Time, float Distance)
     {
-        //score = 10000 - (time + distance);
-        return Mathf.FloorToInt(10000 - (Time + Distance));
+        return Math.Max(0, Mathf.FloorToInt(2000 - (Time + Distance)));
     }
 }
