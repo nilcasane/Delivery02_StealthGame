@@ -22,16 +22,10 @@ public class CameraPatrol : StateMachineBehaviour
         // Move
         if(_timer % _controller.RotationSpeed <= 1)
             _rb.MoveRotation(_controller.NextRotationAngle());
-
   
         // Check triggers
-        var playerClose = _enemyVision.IsPlayerDetected;
         var timeUp = IsTimeUp();
 
-        if (playerClose)
-        {
-            //_controller.Ki
-        }
         animator.SetBool("IsPatroling", !timeUp);
     }
     private bool IsTimeUp()

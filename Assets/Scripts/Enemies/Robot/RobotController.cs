@@ -5,10 +5,9 @@ public class RobotController : MonoBehaviour
 {
     [Header("Waypoints")]
     public Transform[] Waypoints;
-    [SerializeField]
     public int currentWaypoint = 0;
-    [SerializeField]
     private bool ascendingWaypoints = true;
+
     [SerializeField]
     public float Deviation;
 
