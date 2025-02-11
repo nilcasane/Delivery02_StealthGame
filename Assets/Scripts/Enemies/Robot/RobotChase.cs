@@ -23,7 +23,12 @@ public class RobotChase : StateMachineBehaviour
                 _player.position,
                 _controller.chaseSpeed * Time.deltaTime)
         );
-        _rb.rotation = Mathf.Atan2(_player.position.y, _player.position.x) * Mathf.Rad2Deg;
+        _rb.rotation = Mathf.Atan2(_player.position.x, _player.position.y) * Mathf.Rad2Deg;
+        /* Quaternion targetRotation = Quaternion.LookRotation(_player.position);
+        Quaternion rotation = Quaternion.RotateTowards(animator.transform.rotation, targetRotation, 5 * Time.deltaTime);
+        */
+        //_rb.MoveRotation(rotation);
+        //animator.transform.rotation = rotation;
 
         // Check
         var playerClose = _enemyVision.IsPlayerDetected;

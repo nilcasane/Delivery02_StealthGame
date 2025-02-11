@@ -16,7 +16,7 @@ public class CameraIdle : StateMachineBehaviour
         var playerClose = _enemyVision.IsPlayerDetected;
         var timeUp = IsTimeUp();
 
-        animator.SetBool("IsPlayerKilled", playerClose);
+        //animator.SetBool("IsPlayerKilled", playerClose);
         animator.SetBool("IsPatroling", timeUp);
     }
     private bool IsTimeUp()
