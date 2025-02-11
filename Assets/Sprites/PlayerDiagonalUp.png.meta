@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: b7efce5d35c5e7a4984875684aab930c
+guid: 909f54f0924207c498790fd806750208
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8518633805173345018
-    second: Vikingo titulo_0
-  - first:
-      213: -2216267578731558830
-    second: Vikingo titulo_1
-  - first:
-      213: -6189326683263594790
-    second: Vikingo titulo_2
-  - first:
-      213: 8317740310818711336
-    second: Vikingo titulo_3
+      213: -1033457218818309599
+    second: Back-Right_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -60,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -109,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Vikingo titulo_0
+      name: Back-Right_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 5
         y: 0
-        width: 17
-        height: 26
+        width: 23
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,74 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 605320710bbb7c980800000000000000
-      internalID: -8518633805173345018
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Vikingo titulo_1
-      rect:
-        serializedVersion: 2
-        x: 18
-        y: 0
-        width: 26
-        height: 31
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2588d72216c3e31e0800000000000000
-      internalID: -2216267578731558830
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Vikingo titulo_2
-      rect:
-        serializedVersion: 2
-        x: 46
-        y: 0
-        width: 20
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ade0a3d8c281b1aa0800000000000000
-      internalID: -6189326683263594790
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Vikingo titulo_3
-      rect:
-        serializedVersion: 2
-        x: 68
-        y: 0
-        width: 18
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 827eb405ebc8e6370800000000000000
-      internalID: 8317740310818711336
+      spriteID: 12285cd822c68a1f0800000000000000
+      internalID: -1033457218818309599
       vertices: []
       indices: 
       edges: []
@@ -210,10 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Vikingo titulo_0: -8518633805173345018
-      Vikingo titulo_1: -2216267578731558830
-      Vikingo titulo_2: -6189326683263594790
-      Vikingo titulo_3: 8317740310818711336
+      Back-Right_0: -1033457218818309599
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

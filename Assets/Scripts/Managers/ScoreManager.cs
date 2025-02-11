@@ -3,29 +3,16 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    private TimeManager _timeManager;
-    private int _score;
-    private int _highScore;
+    [SerializeField]
+    public static int HighScore {  get; private set; }
+    [SerializeField]
+    public static int LastScore { get; private set; }
 
-    private int _time;
-
-    public static Action<int> OnScoreUpdated;
+    public static Action<float, float> OnScoreUpdated;
 
     public static ScoreManager Instance { get; private set; }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void Awake()
+    private void Start()
     {
         if (Instance == null)
         {
@@ -38,6 +25,27 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    //score = 10000 - (time + distance);
-
+    private void OnEnable()
+    {
+        OnScoreUpdated += UpdateScore;
+    }
+    private void OnDisable()
+    {
+        OnScoreUpdated -= UpdateScore;
+    }
+    public void UpdateScore(float Time, float Distance)
+    {
+        LastScore = CalculateScore(Time, Distance);
+        Debug.Log(LastScore);
+        if (LastScore > HighScore)
+        {
+            HighScore = LastScore;
+            Debug.Log(HighScore);
+        }
+    }
+    private int CalculateScore(float Time, float Distance)
+    {
+        //score = 10000 - (time + distance);
+        return Mathf.FloorToInt(10000 - (Time + Distance));
+    }
 }

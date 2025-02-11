@@ -22,20 +22,12 @@ public class EnemyVision : MonoBehaviour
         var direction2 = Quaternion.AngleAxis(-VisionAngle / 2, transform.forward)
             * transform.up;
         Gizmos.DrawRay(transform.position, direction2 * DetectionRange);
-
         Gizmos.color = Color.white;
     }
 
     private void Update()
     {
-        if (DetectPlayers().Length > 0)
-        {
-            IsPlayerDetected = true;
-        }
-        else
-        {
-            IsPlayerDetected = false;
-        }
+        IsPlayerDetected = (DetectPlayers().Length > 0);
     }
 
     private Transform[] DetectPlayers()
@@ -118,7 +110,7 @@ public class EnemyVision : MonoBehaviour
            DetectionRange,
            WhatIsVisible
         );
-
+        if (hit.collider == null) return false;
         return (hit.collider.transform == target);
     }
 }

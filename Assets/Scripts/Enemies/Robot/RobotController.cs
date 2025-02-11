@@ -9,6 +9,8 @@ public class RobotController : MonoBehaviour
     public int currentWaypoint = 0;
     [SerializeField]
     private bool ascendingWaypoints = true;
+    [SerializeField]
+    public float Deviation;
 
 
     [Header("Settings")]

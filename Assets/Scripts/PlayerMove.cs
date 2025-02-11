@@ -19,15 +19,16 @@ public class PlayerMove : MonoBehaviour
     Vector3 actualPos, lastPos;
 
     [SerializeField]
-    private float Distance = 0;
+    public static float Distance { get; private set; }
 
     public static Action<int> OnDistanceUpdated;
 
     SpriteRenderer _spriteRenderer;
-    public Sprite Up, Down, Side, DiagonalUp;
+    public Sprite UpSprite, DownSprite, SideSprite, DiagonalUpSprite, DiagonalDownSprite;
 
     void Start()
     {
+        Distance = 0;
         _rigidbody = GetComponent<Rigidbody2D>();
         _transform = _rigidbody.transform;
         lastPos = _transform.position;
@@ -49,36 +50,41 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
-    void OnHorizontalMove(InputValue value)
+    void OnMove(InputValue value)
     {
-        Direction.x = value.Get<float>();
-        _spriteRenderer.sprite = Side;
-
-        if (Direction.x == 1)
-        {
-            _spriteRenderer.flipX = false;
-        } else if (Direction.x == -1)
-        {
-            _spriteRenderer.flipX = true;
-        }
+        Direction = value.Get<Vector2>();
+        UpdateSprite();
     }
-    void OnVerticalMove(InputValue value)
+    void UpdateSprite()
     {
-        Direction.y = value.Get<float>();
-        if (Direction.y == 1)
+        // Diagonal move
+        if (Direction.x != 0 && Direction.y != 0)
         {
-            if (Direction.x == 1)
+            // Up diagonal
+            if (Direction.y > 0)
             {
-                _spriteRenderer.sprite = DiagonalUp;
+                _spriteRenderer.sprite = DiagonalUpSprite;
+                // Flip if necessary
+                if (Direction.x < 0) _spriteRenderer.flipX = true;
+                else if (Direction.x > 0) _spriteRenderer.flipX = false;
             }
+            // Down diagonal
             else
             {
-                _spriteRenderer.sprite = Up;
+                _spriteRenderer.sprite = DiagonalDownSprite;
+                // Flip if necessary
+                if (Direction.x < 0) _spriteRenderer.flipX = true;
+                else if (Direction.x > 0) _spriteRenderer.flipX = false;
             }
         }
-        else if (Direction.y == -1)
+        else if (Direction.x != 0)
         {
-            _spriteRenderer.sprite = Down;
+            _spriteRenderer.sprite = SideSprite;
+            // Flip if necessary
+            if (Direction.x < 0) _spriteRenderer.flipX = true;
+            else if (Direction.x > 0) _spriteRenderer.flipX = false;
         }
+        else if (Direction.y > 0) _spriteRenderer.sprite = UpSprite;
+        else if (Direction.y < 0) _spriteRenderer.sprite = DownSprite;
     }
 }
