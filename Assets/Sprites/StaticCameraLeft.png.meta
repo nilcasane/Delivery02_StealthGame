@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c1a383148a655d74f9dd6802e1f3757f
+guid: 5e4e289667276044b98a57210ed0c193
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -103,10 +103,10 @@ TextureImporter:
       name: Camara izquierda_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 0
-        width: 28
-        height: 33
+        x: 5
+        y: 2
+        width: 19
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
