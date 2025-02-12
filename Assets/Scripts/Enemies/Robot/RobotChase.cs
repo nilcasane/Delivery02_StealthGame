@@ -32,7 +32,7 @@ public class RobotChase : StateMachineBehaviour
         _rb.MoveRotation(Quaternion.RotateTowards(animator.transform.rotation, targetRotation, 5000 * Time.deltaTime));
 
         // Check
-        var playerClose = _enemyVision.IsPlayerDetected;
-        animator.SetBool("IsChasing", playerClose);
+        var playerDetected = _enemyVision.IsPlayerDetected || _controller.PlayerDetected;
+        animator.SetBool("IsChasing", playerDetected);
     }
 }

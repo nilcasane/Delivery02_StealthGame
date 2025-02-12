@@ -11,7 +11,6 @@ public class RobotController : MonoBehaviour
     [SerializeField]
     public float Deviation;
 
-
     [Header("Settings")]
     public float patrolSpeed = 10f;
     public float patrolStayTime = 6f;
@@ -22,10 +21,13 @@ public class RobotController : MonoBehaviour
     public Transform player;
     public Rigidbody2D RigidBody;
 
+    public static Action OnCameraWarning;
+    public bool PlayerDetected;
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         RigidBody = GetComponent<Rigidbody2D>();
+        PlayerDetected = false;
     }
     public void NextWaypoint()
     {
@@ -53,5 +55,18 @@ public class RobotController : MonoBehaviour
                 currentWaypoint--;
             }
         }
+    }
+    private void OnEnable()
+    {
+        OnCameraWarning += CameraWarning;
+    }
+    private void OnDisable()
+    {
+        OnCameraWarning -= CameraWarning;
+    }
+    private void CameraWarning()
+    {
+        Debug.Log("Player detected");
+        PlayerDetected = true;
     }
 }

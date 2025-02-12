@@ -14,10 +14,10 @@ public class RobotIdle : StateMachineBehaviour
     }
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        var playerClose = _enemyVision.IsPlayerDetected;
+        var playerDetected = _enemyVision.IsPlayerDetected || _controller.PlayerDetected;
         var timeUp = IsTimeUp();
 
-        animator.SetBool("IsChasing", playerClose);
+        animator.SetBool("IsChasing", playerDetected);
         animator.SetBool("IsPatroling", timeUp);
     }
     private bool IsTimeUp()
