@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1139177119
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ea192e2b8d8c39b40815c556e066c960, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -168,7 +168,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1139177119
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: ca129d3007caade4fa90d6e7e966cbf2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -325,12 +325,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  currentWaypoint: 0
-  Deviation: 45
-  patrolSpeed: 8
-  patrolStayTime: 5
-  chaseSpeed: 14
-  detectionRadius: 5
-  idleDuration: 1
-  player: {fileID: 0}
+  PatrolSpeed: 7
+  PatrolStayTime: 4
+  ChaseSpeed: 14
+  DetectionRadius: 5
+  IdleDuration: 1
+  Player: {fileID: 0}
   RigidBody: {fileID: 0}
