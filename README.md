@@ -1,6 +1,6 @@
-## Delivery 01 - $(Game Title)
+## Delivery 02 - $(Stealth Game)
 
-![$(Game Title)](Screenshots/screenshot01.png "$(Game Title)")
+![$(Stealth Game)](Screenshots/screenshot01.png "$(Game Title)")
 
 ### Description
 
@@ -25,9 +25,10 @@ _TODO: Show your game to the world, animated GIFs recommended!._
 
 ### Developers
 
- - $(Developer 01) - $(Role/Tasks Developed)
- - $(Developer 02) - $(Role/Tasks Developed)
- - $(Developer 03) - $(Role/Tasks Developed)
+ - $(Nill Casañé) - $(Role/Tasks Developed)
+ - $(Gonzalo Querol) - $(Role/Tasks Developed)
+ - $(Àlex Cordón) - $(Role/Tasks Developed)
+ - $(Victor Madrona) - $(Role/Tasks Developed)
 
 ### Links
 
