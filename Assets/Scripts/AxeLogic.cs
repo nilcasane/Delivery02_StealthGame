@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class AxeScript : MonoBehaviour
+public class AxeLogic : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
