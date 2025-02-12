@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class CameraPatrol : StateMachineBehaviour
 {
-    private EnemyVision _enemyVision;
     private CameraController _controller;
 
     private Rigidbody2D _rb;
@@ -13,7 +12,6 @@ public class CameraPatrol : StateMachineBehaviour
     {
         _timer = 0.0f;
         _timer = 0.0f;
-        _enemyVision = animator.GetComponent<EnemyVision>();
         _controller = animator.GetComponent<CameraController>();
         _rb = _controller.RigidBody;
     }
@@ -25,12 +23,11 @@ public class CameraPatrol : StateMachineBehaviour
   
         // Check triggers
         var timeUp = IsTimeUp();
-
         animator.SetBool("IsPatroling", !timeUp);
     }
     private bool IsTimeUp()
     {
         _timer += Time.deltaTime;
-        return (_timer > _controller.patrolStayTime);
+        return (_timer > _controller.PatrolStayTime);
     }
 }

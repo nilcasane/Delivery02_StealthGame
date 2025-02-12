@@ -5,68 +5,53 @@ public class RobotController : MonoBehaviour
 {
     [Header("Waypoints")]
     public Transform[] Waypoints;
-    public int currentWaypoint = 0;
-    private bool ascendingWaypoints = true;
-
-    [SerializeField]
-    public float Deviation;
+    public int CurrentWaypoint {  get; private set; }
+    private bool _ascendingWaypoints = true;
 
     [Header("Settings")]
-    public float patrolSpeed = 10f;
-    public float patrolStayTime = 6f;
-    public float chaseSpeed = 4f;
-    public float detectionRadius = 5f;
-    public float idleDuration = 1f;
+    public float PatrolSpeed = 10f;
+    public float PatrolStayTime = 6f;
+    public float ChaseSpeed = 4f;
+    public float DetectionRadius = 5f;
+    public float IdleDuration = 1f;
 
-    public Transform player;
+    public Transform Player;
     public Rigidbody2D RigidBody;
 
     public static Action OnCameraWarning;
-    public bool PlayerDetected;
+
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        CurrentWaypoint = 0;
+        Player = GameObject.FindGameObjectWithTag("Player").transform;
         RigidBody = GetComponent<Rigidbody2D>();
-        PlayerDetected = false;
     }
+
     public void NextWaypoint()
     {
-        if(ascendingWaypoints)
+        if(_ascendingWaypoints)
         {
-            if(currentWaypoint == Waypoints.Length-1)
+            if(CurrentWaypoint == Waypoints.Length-1)
             {
-                ascendingWaypoints = false;
-                currentWaypoint--;
+                _ascendingWaypoints = false;
+                CurrentWaypoint--;
             }
             else
             {
-                currentWaypoint++;
+                CurrentWaypoint++;
             }
         }
         else
         {
-            if (currentWaypoint == 0)
+            if (CurrentWaypoint == 0)
             {
-                ascendingWaypoints = true;
-                currentWaypoint++;
+                _ascendingWaypoints = true;
+                CurrentWaypoint++;
             }
             else
             {
-                currentWaypoint--;
+                CurrentWaypoint--;
             }
         }
-    }
-    private void OnEnable()
-    {
-        OnCameraWarning += CameraWarning;
-    }
-    private void OnDisable()
-    {
-        OnCameraWarning -= CameraWarning;
-    }
-    private void CameraWarning()
-    {
-        Debug.Log("Player detected");
-        PlayerDetected = true;
     }
 }

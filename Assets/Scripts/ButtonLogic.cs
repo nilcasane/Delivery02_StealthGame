@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class ButtonScript : MonoBehaviour
+public class ButtonLogic : MonoBehaviour
 {
     public static Action OnButtonPressed;
 

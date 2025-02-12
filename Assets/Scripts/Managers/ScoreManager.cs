@@ -14,20 +14,21 @@ public class ScoreManager : MonoBehaviour
     {
         OnScoreUpdated += UpdateScore;
     }
+    
     private void OnDisable()
     {
         OnScoreUpdated -= UpdateScore;
     }
+    
     public void UpdateScore(float Time, float Distance)
     {
         LastScore = CalculateScore(Time, Distance);
-        Debug.Log(LastScore);
         if (LastScore > HighScore)
         {
             HighScore = LastScore;
-            Debug.Log(HighScore);
         }
     }
+
     private int CalculateScore(float Time, float Distance)
     {
         return Math.Max(0, Mathf.FloorToInt(2000 - (Time + Distance)));

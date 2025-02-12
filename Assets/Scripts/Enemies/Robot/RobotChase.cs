@@ -11,28 +11,28 @@ public class RobotChase : StateMachineBehaviour
     {
         _enemyVision = animator.GetComponent<EnemyVision>();
         _controller = animator.GetComponent<RobotController>();
-        _player = _controller.player.transform;
+        _player = _controller.Player.transform;
         _rb = _controller.RigidBody;
     }
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        // Move to player
+        // Move
         Vector2 targetPosition = _player.position;
         _rb.MovePosition(
             Vector2.MoveTowards(
                 animator.transform.position,
                 targetPosition,
-                _controller.chaseSpeed * Time.deltaTime)
+                _controller.ChaseSpeed * Time.deltaTime)
         );
 
-        // Rotación con Quaternion
+        // Rotation
         Vector2 direction = targetPosition - (Vector2)animator.transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
         Quaternion targetRotation = Quaternion.AngleAxis(angle, Vector3.forward);
         _rb.MoveRotation(Quaternion.RotateTowards(animator.transform.rotation, targetRotation, 5000 * Time.deltaTime));
 
         // Check
-        var playerDetected = _enemyVision.IsPlayerDetected || _controller.PlayerDetected;
+        var playerDetected = _enemyVision.IsPlayerDetected;
         animator.SetBool("IsChasing", playerDetected);
     }
 }

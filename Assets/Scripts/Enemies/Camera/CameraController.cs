@@ -14,16 +14,16 @@ public class CameraController : MonoBehaviour
     public bool AscendingAngle = true;
 
     [SerializeField]
-    public float patrolStayTime = 2f;
+    public float PatrolStayTime = 2f;
     [SerializeField]
-    public float idleDuration = 1f;
+    public float IdleWaitTime = 1f;
 
-    public Transform player;
+    public Transform Player;
     public Rigidbody2D RigidBody;
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        Player = GameObject.FindGameObjectWithTag("Player").transform;
         RigidBody = GetComponent<Rigidbody2D>();
         CurrentAngle = RigidBody.rotation;
         _startAngle = CurrentAngle - RotationAngle;

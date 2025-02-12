@@ -8,13 +8,13 @@ public class RobotIdle : StateMachineBehaviour
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        _timer = 0.0f;
         _controller = animator.GetComponent<RobotController>();
         _enemyVision = animator.GetComponent<EnemyVision>();
-        _timer = 0.0f;
     }
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        var playerDetected = _enemyVision.IsPlayerDetected || _controller.PlayerDetected;
+        var playerDetected = _enemyVision.IsPlayerDetected;
         var timeUp = IsTimeUp();
 
         animator.SetBool("IsChasing", playerDetected);
@@ -23,6 +23,6 @@ public class RobotIdle : StateMachineBehaviour
     private bool IsTimeUp()
     {
         _timer += Time.deltaTime;
-        return (_timer > _controller.idleDuration);
+        return (_timer > _controller.IdleDuration);
     }
 }

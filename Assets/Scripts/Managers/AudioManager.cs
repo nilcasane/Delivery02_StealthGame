@@ -3,14 +3,15 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     [Header("Audio Source")]
-    private AudioSource _audioSource;
+    public AudioSource _audioSource;
 
     [Header("Audio Clips")]
-    public AudioClip BackgroundMusic;
+    public AudioClip _backgroundMusic;
+
     private void Start()
     {
         _audioSource = GetComponent<AudioSource>();
-        _audioSource.clip = BackgroundMusic;
+        _audioSource.clip = _backgroundMusic;
         _audioSource.Play();
     }
 }

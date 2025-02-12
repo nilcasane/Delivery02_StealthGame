@@ -4,6 +4,7 @@ using UnityEngine;
 public class TimeManager : MonoBehaviour
 {
     public static float Timer {  get; private set; }
+
     public static Action<int> OnTimeUpdated;
 
     void Start()
