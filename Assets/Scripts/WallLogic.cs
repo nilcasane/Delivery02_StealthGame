@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class WallScript : MonoBehaviour
+public class WallLogic : MonoBehaviour
 {
     private SpriteRenderer _spriteRenderer;
 

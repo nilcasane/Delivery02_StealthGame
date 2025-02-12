@@ -326,11 +326,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   currentWaypoint: 0
-  ascendingWaypoints: 1
   Deviation: 45
   patrolSpeed: 8
   patrolStayTime: 5
-  chaseSpeed: 16
+  chaseSpeed: 14
   detectionRadius: 5
   idleDuration: 1
   player: {fileID: 0}
