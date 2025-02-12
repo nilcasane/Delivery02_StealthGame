@@ -17,11 +17,15 @@ public class PlayerMove : MonoBehaviour
     Transform _transform;
     Vector2 Direction;
     Vector3 actualPos, lastPos;
+    float _lastAngle;
+
 
     [SerializeField]
     public static float Distance { get; private set; }
 
     public static Action<int> OnDistanceUpdated;
+
+    private Animator _animator;
 
     SpriteRenderer _spriteRenderer;
     public Sprite UpSprite, DownSprite, SideSprite, DiagonalUpSprite, DiagonalDownSprite;
@@ -32,6 +36,7 @@ public class PlayerMove : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         _transform = _rigidbody.transform;
         lastPos = _transform.position;
+        _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
@@ -53,38 +58,33 @@ public class PlayerMove : MonoBehaviour
     void OnMove(InputValue value)
     {
         Direction = value.Get<Vector2>();
+        if (Direction.sqrMagnitude > 0)
+        {
+            _lastAngle = Mathf.Atan2(Direction.y, Direction.x) * Mathf.Rad2Deg;
+        }
         UpdateSprite();
     }
     void UpdateSprite()
     {
-        // Diagonal move
-        if (Direction.x != 0 && Direction.y != 0)
+        
+        _animator.SetFloat("MoveX", Direction.x);
+        _animator.SetFloat("MoveY", Direction.y);
+        _animator.SetFloat("Speed", Direction.sqrMagnitude);
+
+        if (Direction.x < 0) _spriteRenderer.flipX = true;
+        else _spriteRenderer.flipX = false;
+
+        if (!_isMoving)
         {
-            // Up diagonal
-            if (Direction.y > 0)
-            {
-                _spriteRenderer.sprite = DiagonalUpSprite;
-                // Flip if necessary
-                if (Direction.x < 0) _spriteRenderer.flipX = true;
-                else if (Direction.x > 0) _spriteRenderer.flipX = false;
-            }
-            // Down diagonal
-            else
-            {
-                _spriteRenderer.sprite = DiagonalDownSprite;
-                // Flip if necessary
-                if (Direction.x < 0) _spriteRenderer.flipX = true;
-                else if (Direction.x > 0) _spriteRenderer.flipX = false;
-            }
+            StartCoroutine(UpdateIdleAngleAfterDelay());
         }
-        else if (Direction.x != 0)
-        {
-            _spriteRenderer.sprite = SideSprite;
-            // Flip if necessary
-            if (Direction.x < 0) _spriteRenderer.flipX = true;
-            else if (Direction.x > 0) _spriteRenderer.flipX = false;
-        }
-        else if (Direction.y > 0) _spriteRenderer.sprite = UpSprite;
-        else if (Direction.y < 0) _spriteRenderer.sprite = DownSprite;
+    }
+
+    // Corrutina para retrasar la actualización del ángulo de idle
+    private System.Collections.IEnumerator UpdateIdleAngleAfterDelay()
+    {
+        yield return new WaitForSeconds(0.1f);
+        // Angle update
+        _animator.SetFloat("LastAngle", _lastAngle);
     }
 }
