@@ -13,6 +13,7 @@ public class EndingScene : MonoBehaviour
         _winPanel.SetActive(GameplayManager.LastResult == GameResult.Win);
         _losePanel.SetActive(GameplayManager.LastResult == GameResult.Lose);
     }
+
     void OnStart()
     {
         GameplayManager.ResetGame();

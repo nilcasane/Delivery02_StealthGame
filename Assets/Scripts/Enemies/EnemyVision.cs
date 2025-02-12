@@ -12,7 +12,6 @@ public class EnemyVision : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, DetectionRange);
-
         Gizmos.color = Color.yellow;
         var direction = Quaternion.AngleAxis(VisionAngle / 2, transform.forward)
             * transform.up;
